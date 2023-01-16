@@ -289,6 +289,8 @@ double FD::CalValue(Option & op)
 
     if (this->getFDtype()=="Implicit")
     {
+/*
+// 没安eigen的话，注释该部分：：：开始
         if (op.getPutCall()=="put")
         {
             for(int j = 0; j <= this->getDN(); j++)
@@ -360,6 +362,8 @@ double FD::CalValue(Option & op)
                 Option_result[r][k-1] = x[r];
             }
         }
+// 没安eigen的话，注释该部分：：：结束
+*/
     }
     else if(getFDtype()=="Explicit")
     {

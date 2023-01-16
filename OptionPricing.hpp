@@ -6,8 +6,12 @@
 #include <random>
 #include <chrono>
 
+/*
+// 没安eigen的话，注释该部分：：：开始
 #include <Eigen/LU>
 //用于隐式有限差分求解矩阵，使用逆矩阵求解矩阵方程
+// 没安eigen的话，注释该部分：：：结束
+*/
 
 // 先声明
 class Asset;
@@ -83,7 +87,7 @@ public:
     virtual std::string getoptiontype()=0;  //定义新的接口,期权类型(欧式或美式)
     double getnowPrice(){throw -1; return -1;};  //因为期权靠定价,所以也不实现该接口
     double getReturnRate(){return this->ReturnRate;};
-    double assetPricing(Engine & engine){throw -1; return -1;}; 
+    double assetPricing(Engine & engine){throw -1; return -1;};  //因为后面要将option作为参数输入，所以要实例化
 
     void whatItis();  //用于输出这个期权的所有属性
 private:
